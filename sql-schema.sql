@@ -1,30 +1,23 @@
--- Create Two Tables
-CREATE TABLE GOT_episodes (
-	id INT PRIMARY KEY,
-	episode_ID FLOAT,
-	rating FLOAT,
-	title TEXT,
-	release_date FLOAT,
-	season INT,
-	episode INT
+CREATE TABLE episodes (
+	episode_id TEXT Primary Key,
+	Rating FLOAT,
+	Title TEXT,
+	Release_date date,
+	Season INT,
+	Episode INT
 );
-
-CREATE TABLE GOT_deaths (
-	id INT PRIMARY KEY,
-	episode_ID FLOAT,
-	season INT,
-	episode INT,
+CREATE TABLE deaths (
+	episode_id Text Primary Key,
 	death_count INT
 );
 
--- Query to check successful load
-SELECT * FROM GOT_episodes;
+drop table deaths
 
-SELECT * FROM GOT_deaths;
+SELECT * FROM episodes;
 
--- Join tables on episode_ID
-SELECT GOT_episodes.id, GOT_episodes.episode_ID, GOT_episodes.rating, GOT_episodes.title, GOT_episodes.release_date, GOT_episodes.season, 
-	GOT_episodes.episode, GOT_deaths.death_count
-FROM GOT_episodes
-INNER JOIN GOT_deaths
-ON GOT_episodes.episode_id = GOT_deaths.episode_id;
+SELECT * FROM deaths;
+
+SELECT e.episode_id, e.rating, e.title, e.release_date, e.season, e.episode, d.death_count
+FROM episodes e
+INNER JOIN deaths d
+ON e.episode_id = d.episode_id;
