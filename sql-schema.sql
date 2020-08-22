@@ -1,16 +1,17 @@
 CREATE TABLE episodes (
 	episode_id TEXT Primary Key,
-	Rating FLOAT,
-	Title TEXT,
-	Release_date date,
-	Season INT,
-	Episode INT
+	rating FLOAT,
+	title TEXT,
+	release_date date,
+	season INT,
+	episode INT
 );
 CREATE TABLE deaths (
 	episode_id Text Primary Key,
 	death_count INT
 );
 
+drop table episodes
 drop table deaths
 
 SELECT * FROM episodes;
